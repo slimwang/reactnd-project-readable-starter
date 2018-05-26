@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+import { Container } from 'reactstrap';
 import CategoryList from './CategoryList';
+
+const categories = ['All', 'Comedy', 'Science Fiction', 'Thriller'];
 
 class App extends Component {
   render() {
     return (
-      <CategoryList />
+      <Container>
+        <CategoryList categories={categories} />
+      </Container>
     );
   }
 }
