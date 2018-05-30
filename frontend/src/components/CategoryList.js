@@ -15,7 +15,9 @@ class CategoryList extends Component {
       <Container>
         <Breadcrumb>
           {categories.map(item => (
-            <BreadcrumbItem active={item === currentActive}><a href={`#${item}`}>{item}</a></BreadcrumbItem>
+            <BreadcrumbItem active={item === currentActive}>
+              {item === currentActive ? item : <a href={`#${item}`}>{item}</a>}
+            </BreadcrumbItem>
           ))}
         </Breadcrumb>
       </Container>
