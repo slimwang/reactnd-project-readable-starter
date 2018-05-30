@@ -10,7 +10,6 @@ class Post extends Component {
             <ListGroupItemHeading className="mb-1">Title</ListGroupItemHeading>
             <small>3 days ago</small>
           </div>
-          <p className="mb-1">Body</p>
           <small>Author</small>
         </ListGroupItem>
       </ListGroup>);
