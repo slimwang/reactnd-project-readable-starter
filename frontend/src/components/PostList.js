@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Button, ButtonGroup } from 'reactstrap';
 import { MdAdd, MdSort } from 'react-icons/lib/md';
+import { Link } from 'react-router-dom';
 import Post from './Post';
 
 class PostList extends Component {
@@ -16,9 +17,11 @@ class PostList extends Component {
               <span className="mr-2"><MdSort /></span>Order by Timestamp
             </Button>
           </ButtonGroup>
-          <Button outline color="primary">
-            <span className="mr-2"><MdAdd /></span>Add New Post
-          </Button>
+          <Link to="/add-post">
+            <Button outline color="primary">
+              <span className="mr-2"><MdAdd /></span>Add New Post
+            </Button>
+          </Link>
         </Container>
         <Container>
           <Post />
