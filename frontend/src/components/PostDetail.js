@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, ListGroup, ListGroupItem, ListGroupItemHeading } from 'reactstrap';
+import { Container, ListGroup, ListGroupItem } from 'reactstrap';
 import Post from './Post';
 
 class PostDetail extends Component {

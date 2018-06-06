@@ -13,7 +13,7 @@ class App extends Component {
       <Container>
         <CategoryList categories={categories} />
         <Route
-          path="/"
+          path="/(|all)/"
           exact
           render={() => (
             <PostList />
