@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container } from 'reactstrap';
+import { Route } from 'react-router-dom';
 import CategoryList from './CategoryList';
 import PostList from './PostList';
 import PostDetail from './PostDetail';
@@ -11,8 +12,19 @@ class App extends Component {
     return (
       <Container>
         <CategoryList categories={categories} />
-        <PostList />
-        <PostDetail />
+        <Route
+          path="/"
+          exact
+          render={() => (
+            <PostList />
+          )}
+        />
+        <Route
+          path="/post-detail"
+          render={() => (
+            <PostDetail />
+          )}
+        />
       </Container>
     );
   }
