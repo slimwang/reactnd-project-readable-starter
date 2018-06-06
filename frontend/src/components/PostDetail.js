@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
+import { Container, ListGroup, ListGroupItem, ListGroupItemHeading } from 'reactstrap';
+import Post from './Post';
 
 class PostDetail extends Component {
   render() {
     return (
-      <p>PostDetail</p>
+      <Container>
+        <Post></Post>
+        <ListGroup>
+          <ListGroupItem>Comment</ListGroupItem>
+        </ListGroup>
+      </Container>
     );
   }
 }
