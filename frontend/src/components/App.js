@@ -5,11 +5,13 @@ import CategoryList from './CategoryList';
 import PostList from './PostList';
 import PostDetail from './PostDetail';
 import CreateEditPost from './CreateEditPost';
+import * as API from '../utils/api';
 
 const categories = ['All', 'Comedy', 'Science Fiction', 'Thriller'];
 
 class App extends Component {
   render() {
+    // API.getCategories().then(c => console.log(c));
     return (
       <Container>
         <CategoryList categories={categories} />
