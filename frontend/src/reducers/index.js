@@ -3,7 +3,7 @@ import {
   REMOVE_POST,
 } from '../actions';
 
-function reducer(state, action) {
+function reducer(state = {}, action) {
   // const { id, timestamp, title, body, author, category, voteScore, deleted } = action;
 
   switch (action.type) {
