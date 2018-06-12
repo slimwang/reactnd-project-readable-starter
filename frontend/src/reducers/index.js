@@ -1,9 +1,20 @@
+import { combineReducers } from 'redux';
 import {
+  GET_CATEGORIES,
   ADD_POST,
   REMOVE_POST,
 } from '../actions';
 
-function reducer(state = {}, action) {
+function categories(state = {}, action) {
+  switch (action.type) {
+    case GET_CATEGORIES:
+      return {};
+    default:
+      return state;
+  }
+}
+
+function posts(state = {}, action) {
   // const { id, timestamp, title, body, author, category, voteScore, deleted } = action;
 
   switch (action.type) {
@@ -16,4 +27,4 @@ function reducer(state = {}, action) {
   }
 }
 
-export default reducer;
+export default combineReducers({ categories, posts });
