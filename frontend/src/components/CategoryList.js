@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { getCategories } from '../utils/api';
 
 class CategoryList extends Component {
   constructor(props) {
@@ -8,9 +9,14 @@ class CategoryList extends Component {
     this.state = { currentActive: 'All' };
   }
 
+  componentWillMount() {
+    getCategories().then(res => this.setState({ categories: res }));
+  }
+
   changeCurrentActive(item) {
     this.setState({ currentActive: item });
   }
+
 
   render() {
     const { categories } = this.props;
