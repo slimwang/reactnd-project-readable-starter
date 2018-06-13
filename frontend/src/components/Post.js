@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Badge, ListGroup, ListGroupItem, ListGroupItemHeading } from 'reactstrap';
+import { Badge, Button, ListGroup, ListGroupItem, ListGroupItemHeading } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import { FaThumbsOUp, FaThumbsODown } from 'react-icons/lib/fa';
+import { FaThumbsOUp, FaThumbsODown, FaEdit, FaTrashO } from 'react-icons/lib/fa';
 
 
 class Post extends Component {
@@ -14,6 +14,8 @@ class Post extends Component {
             <Link to="/post-detail" style={{ textDecoration: 'none' }}>
               <ListGroupItemHeading className="mb-1">
                 {post.title} - {post.category}
+                <Button className="ml-2" outline color="primary" size="sm"><FaEdit /> Edit</Button>
+                <Button className="ml-2" outline color="primary" size="sm"><FaTrashO /> Delete</Button>
               </ListGroupItemHeading>
             </Link>
             <small>3 days ago</small>
