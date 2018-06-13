@@ -40,5 +40,13 @@ class CategoryList extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    categories: state.categories.reduce((accumulator, c) => {
+      accumulator.push(c.name);
+      return accumulator;
+    }, ['All']),
+  };
+}
 
-export default connect()(CategoryList);
+export default connect(mapStateToProps)(CategoryList);

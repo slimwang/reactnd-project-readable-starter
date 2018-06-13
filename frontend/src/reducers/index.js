@@ -5,7 +5,7 @@ import {
   REMOVE_POST,
 } from '../actions';
 
-function categories(state = {}, action) {
+function categories(state = [], action) {
   switch (action.type) {
     case GET_CATEGORIES:
       return action.categories;

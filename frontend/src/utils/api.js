@@ -5,7 +5,6 @@ const headers = { Authorization: 'whatever-you-want' };
 const getCategories = () =>
   fetch(`${api}/categories`, { headers })
     .then(res => res.json())
-    .then(data => data.categories);
 
 const getPosts = category =>
   fetch(`${api}/${category}/posts`, { headers })

@@ -7,8 +7,6 @@ import PostDetail from './PostDetail';
 import CreateEditPost from './CreateEditPost';
 import * as API from '../utils/api';
 
-const categories = ['All', 'Comedy', 'Science Fiction', 'Thriller'];
-
 class App extends Component {
   render() {
     const post = {
@@ -21,7 +19,7 @@ class App extends Component {
     };
     return (
       <Container>
-        <CategoryList categories={categories} />
+        <CategoryList />
         <Route
           path="/(|All)/"
           exact
