@@ -15,7 +15,7 @@ function categories(state = [], action) {
   }
 }
 
-function posts(state = {}, action) {
+function posts(state = [], action) {
   // const { id, timestamp, title, body, author, category, voteScore, deleted } = action;
 
   switch (action.type) {

@@ -13,6 +13,7 @@ class PostList extends Component {
     API.getAllPosts().then(res => this.props.dispatch(getAllPosts({ posts: res })));
   }
   render() {
+    const { posts } = this.props;
     return (
       <div>
         <Container className="mb-3 d-flex w-100 justify-content-between">
@@ -31,14 +32,23 @@ class PostList extends Component {
           </Link>
         </Container>
         <Container>
-          <Post />
-          <Post />
-          <Post />
-          <Post />
+          {posts.map(post => (
+            <Post
+              key={post.id}
+              timestamp={post.timestamp}
+              title={post.title}
+              author={post.author}
+              category={post.category}
+            />
+          ))}
         </Container>
       </div>
     );
   }
 }
 
-export default connect()(PostList);
+function mapStateToProps(state) {
+  return { posts: state.posts };
+}
+
+export default connect(mapStateToProps)(PostList);
