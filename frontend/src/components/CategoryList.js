@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Container, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import { getCategories } from '../utils/api';
+import { connect } from 'react-redux';
+import * as API from '../utils/api';
+import { getCategories } from '../actions';
 
 class CategoryList extends Component {
   constructor(props) {
@@ -9,8 +11,8 @@ class CategoryList extends Component {
     this.state = { currentActive: 'All' };
   }
 
-  componentWillMount() {
-    getCategories().then(res => this.setState({ categories: res }));
+  componentDidMount() {
+    API.getCategories().then(res => this.props.dispatch(getCategories(res)));
   }
 
   changeCurrentActive(item) {
@@ -38,4 +40,5 @@ class CategoryList extends Component {
   }
 }
 
-export default CategoryList;
+
+export default connect()(CategoryList);
