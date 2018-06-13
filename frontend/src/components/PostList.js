@@ -2,9 +2,16 @@ import React, { Component } from 'react';
 import { Container, Button, ButtonGroup } from 'reactstrap';
 import { MdAdd, MdSort } from 'react-icons/lib/md';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+
 import Post from './Post';
+import * as API from '../utils/api';
+import { getAllPosts } from '../actions';
 
 class PostList extends Component {
+  componentDidMount() {
+    API.getAllPosts().then(res => this.props.dispatch(getAllPosts({ posts: res })));
+  }
   render() {
     return (
       <div>
@@ -34,4 +41,4 @@ class PostList extends Component {
   }
 }
 
-export default PostList;
+export default connect()(PostList);
