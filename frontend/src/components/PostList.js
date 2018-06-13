@@ -35,10 +35,7 @@ class PostList extends Component {
           {posts.map(post => (
             <Post
               key={post.id}
-              timestamp={post.timestamp}
-              title={post.title}
-              author={post.author}
-              category={post.category}
+              post={post}
             />
           ))}
         </Container>
