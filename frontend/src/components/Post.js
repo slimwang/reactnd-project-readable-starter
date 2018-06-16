@@ -11,13 +11,17 @@ class Post extends Component {
       <ListGroup>
         <ListGroupItem>
           <div className="d-flex w-100 justify-content-between">
-            <Link to="/post-detail" style={{ textDecoration: 'none' }}>
-              <ListGroupItemHeading className="mb-1">
+            <ListGroupItemHeading className="mb-1">
+              <Link to="/post-detail" style={{ textDecoration: 'none' }}>
                 {post.title} - {post.category}
-                <Button className="ml-2" outline color="primary" size="sm"><FaEdit /> Edit</Button>
-                <Button className="ml-2" outline color="primary" size="sm"><FaTrashO /> Delete</Button>
-              </ListGroupItemHeading>
-            </Link>
+              </Link>
+              <Button className="ml-2" outline color="primary" size="sm">
+                <FaEdit /> Edit
+              </Button>
+              <Button className="ml-2" outline color="primary" size="sm">
+                <FaTrashO /> Delete
+              </Button>
+            </ListGroupItemHeading>
             <small>3 days ago</small>
           </div>
           <div className="d-flex w-100 justify-content-between">

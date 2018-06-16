@@ -6,7 +6,6 @@ class PostDetail extends Component {
   render() {
     return (
       <Container>
-        <Post />
         <ListGroup>
           <ListGroupItem>Comment</ListGroupItem>
         </ListGroup>
