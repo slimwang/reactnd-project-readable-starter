@@ -7,6 +7,8 @@ import { FaThumbsOUp, FaThumbsODown, FaEdit, FaTrashO } from 'react-icons/lib/fa
 class Post extends Component {
   render() {
     const { post } = this.props;
+    const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+    const today = Date.now();
     return (
       <ListGroup>
         <ListGroupItem>
@@ -22,13 +24,15 @@ class Post extends Component {
                 <FaTrashO /> Delete
               </Button>
             </ListGroupItemHeading>
-            <small>3 days ago</small>
+            <small>{Math.round(Math.abs((today - post.timestamp) / (oneDay)))} days ago</small>
           </div>
           <div className="d-flex w-100 justify-content-between">
             <small>{post.author}</small>
             <div>
               <Badge color="primary" pill>{post.commentCount} comments</Badge>
-              <Badge color="secondary" pill>{post.voteScore} votes</Badge><FaThumbsOUp /><FaThumbsODown />
+              <Badge color="secondary" pill>{post.voteScore} votes</Badge>
+              <FaThumbsOUp />
+              <FaThumbsODown />
             </div>
           </div>
         </ListGroupItem>
