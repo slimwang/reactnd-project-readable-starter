@@ -21,11 +21,16 @@ class App extends Component {
       <Container>
         <CategoryList />
         <Route
-          path="/(|All)/"
+          path="/"
           exact
           render={() => (
             <PostList />
           )}
+        />
+        <Route
+          path="/:category"
+          component={ PostList }
+          exact
         />
         <Route
           path="/post-detail"

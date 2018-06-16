@@ -14,6 +14,7 @@ class PostList extends Component {
   }
   render() {
     const { posts } = this.props;
+    const { category } = this.props.match ? this.props.match.params : 'All';
     return (
       <div>
         <Container className="mb-3 d-flex w-100 justify-content-between">
@@ -32,7 +33,7 @@ class PostList extends Component {
           </Link>
         </Container>
         <Container>
-          {posts.map(post => (
+          {posts.filter(post => category === 'All' || post.category === category).map(post => (
             <Post
               key={post.id}
               post={post}
