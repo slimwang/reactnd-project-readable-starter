@@ -13,7 +13,7 @@ class Post extends Component {
         <ListGroupItem>
           <div className="d-flex w-100 justify-content-between">
             <ListGroupItemHeading className="mb-1">
-              <Link to="/post-detail" style={{ textDecoration: 'none' }}>
+              <Link to={`${post.category}/${post.id}`} style={{ textDecoration: 'none' }}>
                 {post.title} - {post.category}
               </Link>
               <Button className="ml-2" outline color="primary" size="sm">

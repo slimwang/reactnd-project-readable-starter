@@ -22,7 +22,7 @@ class App extends Component {
           exact
         />
         <Route
-          path="/post-detail"
+          path="/:category/:post_id"
           render={() => (
             <PostDetail />
           )}
