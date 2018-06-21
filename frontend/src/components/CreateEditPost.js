@@ -1,13 +1,24 @@
 import React, { Component } from 'react';
 import { Container, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { connect } from 'react-redux';
+import serializeForm from 'form-serialize';
+import { addPost } from '../actions';
+import randomID from 'random-id';
 
 class CreateEditPost extends Component {
+  handleSumit = (e) => {
+    e.preventDefault();
+    const post = serializeForm(e.target, { hash: true });
+    post.id = randomID(18);
+    post.timestamp = Date.now();
+    this.props.addPost(post);
+  }
+
   render() {
     const { categories } = this.props;
     return (
       <Container>
-        <Form>
+        <Form onSubmit={this.handleSumit}>
           <FormGroup>
             <Label for="title">Title</Label>
             <Input name="title" placeholder="post title" />
@@ -22,9 +33,9 @@ class CreateEditPost extends Component {
           </FormGroup>
           <FormGroup>
             <Label for="category">Category</Label>
-            <select className="form-control" id="exampleFormControlSelect1">
+            <select name="category" className="form-control" id="exampleFormControlSelect1">
               {categories.map(category => (
-                <option>{category}</option>
+                <option key={category}>{category}</option>
                 ))}
             </select>
           </FormGroup>
@@ -44,4 +55,8 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(CreateEditPost);
+const mapDispatchToProps = dispatch => ({
+  addPost: data => dispatch(addPost(data)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateEditPost);

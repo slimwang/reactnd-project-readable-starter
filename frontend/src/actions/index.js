@@ -17,19 +17,10 @@ export function getAllPosts({ posts }) {
   };
 }
 
-export function addPost({
-  id, timestamp, title, body, author, category, voteScore, deleted,
-}) {
+export function addPost(post) {
   return {
     type: ADD_POST,
-    id,
-    timestamp,
-    title,
-    body,
-    author,
-    category,
-    voteScore,
-    deleted,
+    post,
   };
 }
 export function removePost({ id, category }) {

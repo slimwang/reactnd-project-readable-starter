@@ -2817,6 +2817,10 @@ form-data@~2.3.1:
     combined-stream "1.0.6"
     mime-types "^2.1.12"
 
+form-serialize@^0.7.2:
+  version "0.7.2"
+  resolved "http://registry.npm.taobao.org/form-serialize/download/form-serialize-0.7.2.tgz#b0a2ff0c22026fb6d3d15c9d33f6de6a432e4732"
+
 forwarded@~0.1.2:
   version "0.1.2"
   resolved "http://registry.npm.taobao.org/forwarded/download/forwarded-0.1.2.tgz#98c23dab1175657b8c0573e8ceccd91b0ff18c84"
@@ -5501,6 +5505,10 @@ raf@3.4.0:
   resolved "http://registry.npm.taobao.org/raf/download/raf-3.4.0.tgz#a28876881b4bc2ca9117d4138163ddb80f781575"
   dependencies:
     performance-now "^2.1.0"
+
+random-id@^0.0.2:
+  version "0.0.2"
+  resolved "http://registry.npm.taobao.org/random-id/download/random-id-0.0.2.tgz#291b7d76d39c914196ca4b19d83509e67cdf1590"
 
 randomatic@^3.0.0:
   version "3.0.0"

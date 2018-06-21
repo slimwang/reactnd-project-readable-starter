@@ -5,6 +5,7 @@ import {
   ADD_POST,
   REMOVE_POST,
 } from '../actions';
+import * as API from '../utils/api';
 
 function categories(state = [], action) {
   switch (action.type) {
@@ -22,7 +23,9 @@ function posts(state = [], action) {
     case GET_ALL_POSTS:
       return action.posts;
     case ADD_POST:
-      return {};
+      API.addPost(action.post);
+      state.push(action.post);
+      return state;
     case REMOVE_POST:
       return {};
     default:
