@@ -5,31 +5,20 @@ import CategoryList from './CategoryList';
 import PostList from './PostList';
 import PostDetail from './PostDetail';
 import CreateEditPost from './CreateEditPost';
-import * as API from '../utils/api';
 
 class App extends Component {
   render() {
-    const post = {
-      id: '6b33fce8-1745-f8de-4ad8-4ee42585oprf',
-      timestamp: Date.now(),
-      title: 'title',
-      body: 'body',
-      author: 'author',
-      category: 'react',
-    };
     return (
       <Container>
         <CategoryList />
         <Route
           path="/"
+          component={PostList}
           exact
-          render={() => (
-            <PostList />
-          )}
         />
         <Route
           path="/:category"
-          component={ PostList }
+          component={PostList}
           exact
         />
         <Route
