@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 import Post from './Post';
 import * as API from '../utils/api';
-import { getAllPosts } from '../actions';
+import { getAllPosts, sortBy } from '../actions';
 
 class PostList extends Component {
   componentDidMount() {
@@ -19,10 +19,10 @@ class PostList extends Component {
       <div>
         <Container className="mb-3 d-flex w-100 justify-content-between">
           <ButtonGroup>
-            <Button outline color="primary">
+            <Button onClick={() => this.props.dispatch(sortBy({ by: 'voteScore' }))} outline color="primary">
               <span className="mr-2"><MdSort /></span>Order by VoteScore
             </Button>
-            <Button outline color="primary">
+            <Button onClick={() => this.props.dispatch(sortBy({ by: 'voteScore' }))} outline color="primary">
               <span className="mr-2"><MdSort /></span>Order by Timestamp
             </Button>
           </ButtonGroup>
@@ -48,5 +48,6 @@ class PostList extends Component {
 function mapStateToProps(state) {
   return { posts: state.posts };
 }
+
 
 export default connect(mapStateToProps)(PostList);

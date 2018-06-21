@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
+import sortBy from 'sort-by';
 import {
   GET_CATEGORIES,
   GET_ALL_POSTS,
   ADD_POST,
   REMOVE_POST,
+  SORT_BY,
 } from '../actions';
 import * as API from '../utils/api';
 
@@ -28,6 +30,8 @@ function posts(state = [], action) {
       return state;
     case REMOVE_POST:
       return {};
+    case SORT_BY:
+      return state.slice().sort(sortBy(action.by)).reverse();
     default:
       return state;
   }

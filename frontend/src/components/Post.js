@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import { Badge, Button, ListGroup, ListGroupItem, ListGroupItemHeading } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { FaThumbsOUp, FaThumbsODown, FaEdit, FaTrashO } from 'react-icons/lib/fa';
+import moment from 'moment';
 
 
 class Post extends Component {
   render() {
     const { post } = this.props;
-    const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
-    const today = Date.now();
     return (
       <ListGroup>
         <ListGroupItem>
@@ -24,7 +23,7 @@ class Post extends Component {
                 <FaTrashO /> Delete
               </Button>
             </ListGroupItemHeading>
-            <small>{Math.round(Math.abs((today - post.timestamp) / (oneDay)))} days ago</small>
+            <small>{moment(post.timestamp).format("YYYY-MM-DD HH:mm:ss")}</small>
           </div>
           <div className="d-flex w-100 justify-content-between">
             <small>{post.author}</small>

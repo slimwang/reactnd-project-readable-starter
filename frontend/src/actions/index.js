@@ -2,6 +2,7 @@ export const GET_CATEGORIES = 'GET_CATEGORIES';
 export const GET_ALL_POSTS = 'GET_ALL_POSTS';
 export const ADD_POST = 'ADD_POST';
 export const REMOVE_POST = 'REMOVE_POST';
+export const SORT_BY = 'SORT_BY';
 
 export function getCategories({ categories }) {
   return {
@@ -28,5 +29,11 @@ export function removePost({ id, category }) {
     type: ADD_POST,
     id,
     category,
+  };
+}
+export function sortBy({ by }) {
+  return {
+    type: SORT_BY,
+    by,
   };
 }
