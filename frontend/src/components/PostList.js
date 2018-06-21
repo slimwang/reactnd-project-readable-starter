@@ -14,7 +14,7 @@ class PostList extends Component {
   }
   render() {
     const { posts } = this.props;
-    const { category } = this.props.match.params === {} ? this.props.match.params : { category: 'All' };
+    const { category } = this.props.match.params !== {} ? this.props.match.params : { category: 'All' };
     return (
       <div>
         <Container className="mb-3 d-flex w-100 justify-content-between">
