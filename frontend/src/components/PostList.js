@@ -22,7 +22,7 @@ class PostList extends Component {
             <Button onClick={() => this.props.dispatch(sortBy({ by: 'voteScore' }))} outline color="primary">
               <span className="mr-2"><MdSort /></span>Order by VoteScore
             </Button>
-            <Button onClick={() => this.props.dispatch(sortBy({ by: 'voteScore' }))} outline color="primary">
+            <Button onClick={() => this.props.dispatch(sortBy({ by: 'timestamp' }))} outline color="primary">
               <span className="mr-2"><MdSort /></span>Order by Timestamp
             </Button>
           </ButtonGroup>
