@@ -3,11 +3,13 @@ import { Container, ListGroup, ListGroupItem } from 'reactstrap';
 import { connect } from 'react-redux';
 import Post from './Post';
 import * as API from '../utils/api';
-import { getAllPosts, sortBy } from '../actions';
+import { getAllPosts } from '../actions';
 
 class PostDetail extends Component {
   componentWillMount() {
-    API.getAllPosts().then(res => this.props.dispatch(getAllPosts({ posts: res })));
+    if (Object.keys(this.props.post).length === 0) {
+      API.getAllPosts().then(res => this.props.dispatch(getAllPosts({ posts: res })));
+    }
   }
   render() {
     return (
