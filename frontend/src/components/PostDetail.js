@@ -14,7 +14,7 @@ class PostDetail extends Component {
   render() {
     return (
       <Container>
-        <Post post={this.props.post[0]} />
+        <Post post={this.props.post[0]} showDetail />
         <ListGroup>
           <ListGroupItem>Comment</ListGroupItem>
         </ListGroup>

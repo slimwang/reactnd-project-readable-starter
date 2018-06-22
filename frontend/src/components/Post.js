@@ -38,6 +38,7 @@ class Post extends Component {
             </ListGroupItemHeading>
             <small>{moment(post.timestamp).format('YYYY-MM-DD HH:mm:ss')}</small>
           </div>
+          {this.props.showDetail && <div className="mb-2 mt-2">{post.body}</div>}
           <div className="d-flex w-100 justify-content-between">
             <small>{post.author}</small>
             <div>
