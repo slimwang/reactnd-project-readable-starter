@@ -6,7 +6,7 @@ import * as API from '../utils/api';
 import { getAllPosts } from '../actions';
 
 class PostDetail extends Component {
-  componentWillMount() {
+  componentDidMount() {
     if (Object.keys(this.props.post).length === 0) {
       API.getAllPosts().then(res => this.props.dispatch(getAllPosts({ posts: res })));
     }
