@@ -22,7 +22,7 @@ class App extends Component {
           exact
         />
         <Route
-          path="/:category/:post_id"
+          path="/:category/:postID"
           component={PostDetail}
         />
         <Route
