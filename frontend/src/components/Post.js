@@ -7,7 +7,20 @@ import moment from 'moment';
 
 class Post extends Component {
   render() {
-    const { post } = this.props;
+    let { post } = this.props;
+    if (post === undefined) {
+      post = {
+        id: 'loading',
+        timestamp: 1467166872634,
+        title: 'loading',
+        body: 'loading',
+        author: 'loading',
+        category: 'loading',
+        voteScore: 0,
+        deleted: false,
+        commentCount: 0,
+      };
+    }
     return (
       <ListGroup>
         <ListGroupItem>
@@ -23,7 +36,7 @@ class Post extends Component {
                 <FaTrashO /> Delete
               </Button>
             </ListGroupItemHeading>
-            <small>{moment(post.timestamp).format("YYYY-MM-DD HH:mm:ss")}</small>
+            <small>{moment(post.timestamp).format('YYYY-MM-DD HH:mm:ss')}</small>
           </div>
           <div className="d-flex w-100 justify-content-between">
             <small>{post.author}</small>
