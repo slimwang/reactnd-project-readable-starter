@@ -21,14 +21,21 @@ class Post extends Component {
         commentCount: 0,
       };
     }
+    let title;
+    if (!this.props.showDetail) {
+      title = (
+        <Link to={`${post.category}/${post.id}`} style={{ textDecoration: 'none' }}>
+          {post.title} - {post.category}
+        </Link>);
+    } else {
+      title = <span>{post.title} - {post.category}</span>;
+    }
     return (
       <ListGroup>
         <ListGroupItem>
           <div className="d-flex w-100 justify-content-between">
             <ListGroupItemHeading className="mb-1">
-              <Link to={`${post.category}/${post.id}`} style={{ textDecoration: 'none' }}>
-                {post.title} - {post.category}
-              </Link>
+              {title}
               <Button className="ml-2" outline color="primary" size="sm">
                 <FaEdit /> Edit
               </Button>
@@ -38,7 +45,7 @@ class Post extends Component {
             </ListGroupItemHeading>
             <small>{moment(post.timestamp).format('YYYY-MM-DD HH:mm:ss')}</small>
           </div>
-          {this.props.showDetail && <div className="mb-2 mt-2">{post.body}</div>}
+          {this.props.showDetail && <div className="mb-4 mt-2">{post.body}</div>}
           <div className="d-flex w-100 justify-content-between">
             <small>{post.author}</small>
             <div>
