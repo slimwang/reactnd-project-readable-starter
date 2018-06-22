@@ -23,9 +23,7 @@ class App extends Component {
         />
         <Route
           path="/:category/:post_id"
-          render={() => (
-            <PostDetail />
-          )}
+          component={PostDetail}
         />
         <Route
           path="/(add-post|edit-post)/"
