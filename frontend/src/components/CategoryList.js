@@ -30,7 +30,7 @@ class CategoryList extends Component {
             <BreadcrumbItem key={item} active={item === this.state.currentActive}>
               {
                 item === this.state.currentActive ?
-                item : <Link to={`${item}`} onClick={() => { this.changeCurrentActive(item); }} >{item}</Link>
+                item : <Link to={`/${item}`} onClick={() => { this.changeCurrentActive(item); }} >{item}</Link>
               }
             </BreadcrumbItem>
           ))}
