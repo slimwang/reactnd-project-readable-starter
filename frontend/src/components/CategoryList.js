@@ -29,7 +29,7 @@ class CategoryList extends Component {
           {categories.map(item => (
             <BreadcrumbItem key={item} active={item === this.state.currentActive}>
               {
-                item === this.state.currentActive ?
+                item === this.state.currentActive && item !=='All' ?
                 item : <Link to={`/${item}`} onClick={() => { this.changeCurrentActive(item); }} >{item}</Link>
               }
             </BreadcrumbItem>
