@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Container, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { connect } from 'react-redux';
 import serializeForm from 'form-serialize';
-import { addPost } from '../actions';
 import randomID from 'random-id';
+import { addPost } from '../actions';
 
 class CreateEditPost extends Component {
   handleSumit = (e) => {

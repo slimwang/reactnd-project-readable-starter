@@ -6,6 +6,7 @@ import { MdAdd } from 'react-icons/lib/md';
 import moment from 'moment';
 import { connect } from 'react-redux';
 import { votePost } from '../actions';
+import AddEditComment from './AddEditComment';
 
 
 class Post extends Component {
@@ -52,9 +53,7 @@ class Post extends Component {
                 <FaTrashO /> Delete
               </Button>
               {this.props.showDetail &&
-                <Button className="ml-2" outline color="primary" size="sm">
-                  <MdAdd /> Add New Comment
-                </Button>
+                <AddEditComment />
               }
             </ListGroupItemHeading>
             <small>{moment(post.timestamp).format('YYYY-MM-DD HH:mm:ss')}</small>

@@ -24,6 +24,7 @@ class App extends Component {
         <Route
           path="/:category/:postID"
           component={PostDetail}
+          exact
         />
         <Route
           path="/(add|edit)/"
