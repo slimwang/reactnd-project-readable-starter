@@ -36,7 +36,6 @@ class Comment extends Component {
             <div className="d-flex w-100 justify-content-between">
               <small>{comment.author}</small>
               <div>
-                <Badge color="primary" pill>{comment.commentCount} comments</Badge>
                 <Badge color="secondary" pill>{comment.voteScore} votes</Badge>
                 <FaThumbsOUp />
                 <FaThumbsODown />
