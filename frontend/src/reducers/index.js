@@ -9,6 +9,7 @@ import {
   GET_ALL_COMMENTS,
   VOTE_POST,
   VOTE_COMMENT,
+  ADD_COMMENT,
 } from '../actions';
 import * as API from '../utils/api';
 
@@ -67,6 +68,16 @@ function comments(state = [], action) {
         }
         return comment;
       });
+    }
+    case ADD_COMMENT: {
+      API.addComment(action.comment);
+      const { comment } = action;
+      comment.voteScore = 1;
+      comment.deleted = false;
+      comment.parentDeleted = false;
+      const newState = state.slice();
+      newState.push(comment);
+      return newState;
     }
     default:
       return state;

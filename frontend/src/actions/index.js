@@ -6,6 +6,7 @@ export const SORT_BY = 'SORT_BY';
 export const GET_ALL_COMMENTS = 'GET_ALL_COMMENTS';
 export const VOTE_POST = 'VOTE_POST';
 export const VOTE_COMMENT = 'VOTE_COMMENT';
+export const ADD_COMMENT = 'ADD_COMMENT';
 
 export function getCategories({ categories }) {
   return {
@@ -61,5 +62,12 @@ export function voteComment({ commentID, voteType }) {
     type: VOTE_COMMENT,
     commentID,
     voteType,
+  };
+}
+
+export function addComment({ comment }) {
+  return {
+    type: ADD_COMMENT,
+    comment,
   };
 }

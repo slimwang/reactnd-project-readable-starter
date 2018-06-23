@@ -60,7 +60,7 @@ const getAllComments = postID =>
   fetch(`${api}/posts/${postID}/comments`, { headers })
     .then(res => res.json());
 
-const addComment = (post, comment) =>
+const addComment = comment =>
   fetch(`${api}/comments`, {
     method: 'POST',
     headers: {
