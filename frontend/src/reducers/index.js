@@ -6,6 +6,7 @@ import {
   ADD_POST,
   REMOVE_POST,
   SORT_BY,
+  GET_ALL_COMMENTS,
 } from '../actions';
 import * as API from '../utils/api';
 
@@ -19,8 +20,6 @@ function categories(state = [], action) {
 }
 
 function posts(state = [], action) {
-  // const { id, timestamp, title, body, author, category, voteScore, deleted } = action;
-
   switch (action.type) {
     case GET_ALL_POSTS:
       return action.posts;
@@ -37,4 +36,13 @@ function posts(state = [], action) {
   }
 }
 
-export default combineReducers({ categories, posts });
+function comments(state = [], action) {
+  switch (action.type) {
+    case GET_ALL_COMMENTS:
+      return action.comments;
+    default:
+      return state;
+  }
+}
+
+export default combineReducers({ categories, posts, comments });

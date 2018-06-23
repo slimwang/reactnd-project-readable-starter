@@ -56,8 +56,8 @@ const deletePost = post =>
     },
   });
 
-const getAllComments = post =>
-  fetch(`${api}/posts/${post.id}/comments`, { headers })
+const getAllComments = postID =>
+  fetch(`${api}/posts/${postID}/comments`, { headers })
     .then(res => res.json());
 
 const addComment = (post, comment) =>
