@@ -28,8 +28,9 @@ function posts(state = [], action) {
       return action.posts;
     case ADD_POST:
       API.addPost(action.post);
-      state.push(action.post);
-      return state;
+      let newState = state.slice();
+      newState.push(action.post);
+      return newState;
     case VOTE_POST: {
       const { voteType, postID } = action;
       API.votePost(postID, voteType);
@@ -75,7 +76,7 @@ function comments(state = [], action) {
       comment.voteScore = 1;
       comment.deleted = false;
       comment.parentDeleted = false;
-      const newState = state.slice();
+      let newState = state.slice();
       newState.push(comment);
       return newState;
     }
