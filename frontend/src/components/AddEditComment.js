@@ -27,7 +27,7 @@ class AddEditComment extends Component {
     const comment = serializeForm(e.target, { hash: true });
     comment.id = randomID(18);
     comment.timestamp = Date.now();
-    comment.parentid = this.props.postID;
+    comment.parentId = this.props.postID;
     this.props.dispatch(addComment({ comment }));
     this.toggle();
   }
