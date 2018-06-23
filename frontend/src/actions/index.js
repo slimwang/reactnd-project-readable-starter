@@ -4,6 +4,7 @@ export const ADD_POST = 'ADD_POST';
 export const REMOVE_POST = 'REMOVE_POST';
 export const SORT_BY = 'SORT_BY';
 export const GET_ALL_COMMENTS = 'GET_ALL_COMMENTS';
+export const VOTE_POST = 'VOTE_POST';
 
 export function getCategories({ categories }) {
   return {
@@ -43,5 +44,13 @@ export function getAllComments({ comments }) {
   return {
     type: GET_ALL_COMMENTS,
     comments,
+  };
+}
+
+export function votePost({ voteType, postID }) {
+  return {
+    type: VOTE_POST,
+    voteType,
+    postID,
   };
 }

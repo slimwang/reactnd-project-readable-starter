@@ -7,6 +7,7 @@ import {
   REMOVE_POST,
   SORT_BY,
   GET_ALL_COMMENTS,
+  VOTE_POST,
 } from '../actions';
 import * as API from '../utils/api';
 
@@ -27,6 +28,19 @@ function posts(state = [], action) {
       API.addPost(action.post);
       state.push(action.post);
       return state;
+    case VOTE_POST: {
+      const { voteType, postID } = action;
+      API.votePost(postID, voteType);
+      return state.map((post) => {
+        if (post.id === postID) {
+          return voteType === 'upVote' ?
+            { ...post, voteScore: post.voteScore + 1 }
+            :
+            { ...post, voteScore: post.voteScore - 1 };
+        }
+        return post;
+      });
+    }
     case REMOVE_POST:
       return {};
     case SORT_BY:

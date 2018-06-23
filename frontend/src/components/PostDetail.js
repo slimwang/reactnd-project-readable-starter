@@ -12,7 +12,6 @@ class PostDetail extends Component {
       API.getAllPosts()
         .then(res => this.props.dispatch(getAllPosts({ posts: res })))
     }
-    console.log(this.props.match.params.postID);
     API.getAllComments(this.props.match.params.postID)
       .then(res => this.props.dispatch(getAllComments({ comments: res })));
   }

@@ -4,7 +4,7 @@ const headers = { Authorization: 'whatever-you-want' };
 
 const getCategories = () =>
   fetch(`${api}/categories`, { headers })
-    .then(res => res.json())
+    .then(res => res.json());
 
 const getPosts = category =>
   fetch(`${api}/${category}/posts`, { headers })
@@ -28,14 +28,14 @@ const getPostDetail = post =>
   fetch(`${api}/posts/${post.id}`, { headers })
     .then(res => res.json());
 
-const votePost = (post, type) =>
-  fetch(`${api}/posts/${post.id}`, {
+const votePost = (postID, voteType) =>
+  fetch(`${api}/posts/${postID}`, {
     method: 'POST',
     headers: {
       ...headers,
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ type }),
+    body: JSON.stringify({ option: voteType }),
   });
 
 const editPost = post =>

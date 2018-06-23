@@ -3,9 +3,17 @@ import { Badge, Button, ListGroup, ListGroupItem, ListGroupItemHeading } from 'r
 import { Link } from 'react-router-dom';
 import { FaThumbsOUp, FaThumbsODown, FaEdit, FaTrashO } from 'react-icons/lib/fa';
 import moment from 'moment';
+import { connect } from 'react-redux';
+import { votePost } from '../actions';
 
 
 class Post extends Component {
+  handleVotePost(event) {
+    const voteType = event.target.name;
+    const postID = this.props.post.id;
+    this.props.dispatch(votePost({ voteType, postID }));
+  }
+
   render() {
     let { post } = this.props;
     if (post === undefined) {
@@ -51,8 +59,8 @@ class Post extends Component {
             <div>
               <Badge color="primary" pill>{post.commentCount} comments</Badge>
               <Badge color="secondary" pill>{post.voteScore} votes</Badge>
-              <FaThumbsOUp />
-              <FaThumbsODown />
+              <Button onClick={e => this.handleVotePost(e)} name="upVote" color="link"><FaThumbsOUp /></Button>
+              <Button onClick={e => this.handleVotePost(e)} name="downVote" color="link"><FaThumbsODown /></Button>
             </div>
           </div>
         </ListGroupItem>
@@ -60,4 +68,4 @@ class Post extends Component {
   }
 }
 
-export default Post;
+export default connect()(Post);
