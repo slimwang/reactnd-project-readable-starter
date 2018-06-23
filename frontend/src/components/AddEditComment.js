@@ -41,14 +41,14 @@ class AddEditComment extends Component {
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <Form onSubmit={this.handleSumit}>
             <ModalBody>
-                <FormGroup>
-                  <Label for="body">Body</Label>
-                  <Input type="textarea" name="body" />
-                </FormGroup>
-                <FormGroup>
-                  <Label for="author">Author</Label>
-                  <Input name="author" placeholder="post author" />
-                </FormGroup>
+              <FormGroup>
+                <Label for="body">Body</Label>
+                <Input type="textarea" name="body" />
+              </FormGroup>
+              <FormGroup>
+                <Label for="author">Author</Label>
+                <Input name="author" placeholder="post author" />
+              </FormGroup>
             </ModalBody>
             <ModalFooter>
               <Button color="primary">Submit</Button>

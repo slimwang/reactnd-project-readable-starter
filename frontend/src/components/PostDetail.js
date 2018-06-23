@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, ListGroup, ListGroupItem } from 'reactstrap';
+import { Container } from 'reactstrap';
 import { connect } from 'react-redux';
 import Post from './Post';
 import Comment from './Comment';
@@ -10,7 +10,7 @@ class PostDetail extends Component {
   componentDidMount() {
     if (Object.keys(this.props.post).length === 0) {
       API.getAllPosts()
-        .then(res => this.props.dispatch(getAllPosts({ posts: res })))
+        .then(res => this.props.dispatch(getAllPosts({ posts: res })));
     }
     API.getAllComments(this.props.match.params.postID)
       .then(res => this.props.dispatch(getAllComments({ comments: res })));
