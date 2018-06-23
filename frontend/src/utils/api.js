@@ -74,14 +74,14 @@ const getCommentDetail = comment =>
   fetch(`${api}/comments/${comment.id}/`, { headers })
     .then(res => res.json());
 
-const voteComment = (comment, type) =>
-  fetch(`${api}/comments/${comment.id}`, {
+const voteComment = (commentID, voteType) =>
+  fetch(`${api}/comments/${commentID}`, {
     method: 'POST',
     headers: {
       ...headers,
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ type }),
+    body: JSON.stringify({ option: voteType }),
   });
 
 const editComment = comment =>

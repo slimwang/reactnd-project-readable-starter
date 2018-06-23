@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import { Badge, Button, ListGroup, ListGroupItem, ListGroupItemHeading } from 'reactstrap';
 import { FaThumbsOUp, FaThumbsODown, FaEdit, FaTrashO } from 'react-icons/lib/fa';
+import { connect } from 'react-redux';
+import { voteComment } from '../actions';
 
 class Comment extends Component {
+  handleVotePost(event, comment) {
+    const voteType = event.target.name;
+    const commentID = comment.id;
+    this.props.dispatch(voteComment({ commentID, voteType }));
+  }
   render() {
     let { comments } = this.props;
     if (comments === undefined) {
@@ -37,8 +44,13 @@ class Comment extends Component {
               <small>{comment.author}</small>
               <div>
                 <Badge color="secondary" pill>{comment.voteScore} votes</Badge>
-                <FaThumbsOUp />
-                <FaThumbsODown />
+                <Button onClick={e => this.handleVotePost(e, comment)} name="upVote" color="link">
+                  <FaThumbsOUp />
+                </Button>
+                <Button onClick={e => this.handleVotePost(e, comment)} name="downVote" color="link">
+                  <FaThumbsODown />
+                </Button>
+
               </div>
             </div>
           </ListGroupItem>
@@ -47,4 +59,4 @@ class Comment extends Component {
   }
 }
 
-export default Comment;
+export default connect()(Comment);

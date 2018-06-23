@@ -8,6 +8,7 @@ import {
   SORT_BY,
   GET_ALL_COMMENTS,
   VOTE_POST,
+  VOTE_COMMENT,
 } from '../actions';
 import * as API from '../utils/api';
 
@@ -54,6 +55,19 @@ function comments(state = [], action) {
   switch (action.type) {
     case GET_ALL_COMMENTS:
       return action.comments;
+    case VOTE_COMMENT: {
+      const { commentID, voteType } = action;
+      API.voteComment(commentID, voteType);
+      return state.map((comment) => {
+        if (comment.id === commentID) {
+          return voteType === 'upVote' ?
+            { ...comment, voteScore: comment.voteScore + 1 }
+            :
+            { ...comment, voteScore: comment.voteScore - 1 };
+        }
+        return comment;
+      });
+    }
     default:
       return state;
   }

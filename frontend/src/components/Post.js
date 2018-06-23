@@ -59,8 +59,12 @@ class Post extends Component {
             <div>
               <Badge color="primary" pill>{post.commentCount} comments</Badge>
               <Badge color="secondary" pill>{post.voteScore} votes</Badge>
-              <Button onClick={e => this.handleVotePost(e)} name="upVote" color="link"><FaThumbsOUp /></Button>
-              <Button onClick={e => this.handleVotePost(e)} name="downVote" color="link"><FaThumbsODown /></Button>
+              <Button onClick={e => this.handleVotePost(e)} name="upVote" color="link">
+                <FaThumbsOUp />
+              </Button>
+              <Button onClick={e => this.handleVotePost(e)} name="downVote" color="link">
+                <FaThumbsODown />
+              </Button>
             </div>
           </div>
         </ListGroupItem>

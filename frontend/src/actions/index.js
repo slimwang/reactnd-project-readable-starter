@@ -5,6 +5,7 @@ export const REMOVE_POST = 'REMOVE_POST';
 export const SORT_BY = 'SORT_BY';
 export const GET_ALL_COMMENTS = 'GET_ALL_COMMENTS';
 export const VOTE_POST = 'VOTE_POST';
+export const VOTE_COMMENT = 'VOTE_COMMENT';
 
 export function getCategories({ categories }) {
   return {
@@ -47,10 +48,18 @@ export function getAllComments({ comments }) {
   };
 }
 
-export function votePost({ voteType, postID }) {
+export function votePost({ postID, voteType }) {
   return {
     type: VOTE_POST,
-    voteType,
     postID,
+    voteType,
+  };
+}
+
+export function voteComment({ commentID, voteType }) {
+  return {
+    type: VOTE_COMMENT,
+    commentID,
+    voteType,
   };
 }
