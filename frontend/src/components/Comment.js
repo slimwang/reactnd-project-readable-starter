@@ -50,7 +50,6 @@ class Comment extends Component {
                 <Button onClick={e => this.handleVotePost(e, comment)} name="downVote" color="link">
                   <FaThumbsODown />
                 </Button>
-
               </div>
             </div>
           </ListGroupItem>

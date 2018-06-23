@@ -26,7 +26,7 @@ class App extends Component {
           component={PostDetail}
         />
         <Route
-          path="/(add-post|edit-post)/"
+          path="/(add|edit)/"
           render={() => (
             <CreateEditPost />
           )}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Badge, Button, ListGroup, ListGroupItem, ListGroupItemHeading } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { FaThumbsOUp, FaThumbsODown, FaEdit, FaTrashO } from 'react-icons/lib/fa';
+import { MdAdd } from 'react-icons/lib/md';
 import moment from 'moment';
 import { connect } from 'react-redux';
 import { votePost } from '../actions';
@@ -50,6 +51,11 @@ class Post extends Component {
               <Button className="ml-2" outline color="primary" size="sm">
                 <FaTrashO /> Delete
               </Button>
+              {this.props.showDetail &&
+                <Button className="ml-2" outline color="primary" size="sm">
+                  <MdAdd /> Add New Comment
+                </Button>
+              }
             </ListGroupItemHeading>
             <small>{moment(post.timestamp).format('YYYY-MM-DD HH:mm:ss')}</small>
           </div>

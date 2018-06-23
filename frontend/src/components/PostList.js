@@ -26,7 +26,7 @@ class PostList extends Component {
               <span className="mr-2"><MdSort /></span>Order by Timestamp
             </Button>
           </ButtonGroup>
-          <Link to="/add-post">
+          <Link to="/add">
             <Button outline color="primary">
               <span className="mr-2"><MdAdd /></span>Add New Post
             </Button>
