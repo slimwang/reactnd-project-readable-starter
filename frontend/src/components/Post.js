@@ -45,9 +45,11 @@ class Post extends Component {
           <div className="d-flex w-100 justify-content-between">
             <ListGroupItemHeading className="mb-1">
               {title}
-              <Button className="ml-2" outline color="primary" size="sm">
-                <FaEdit /> Edit
-              </Button>
+              <Link to={`/post/${post.id}/edit`}>
+                <Button className="ml-2" outline color="primary" size="sm">
+                  <FaEdit /> Edit
+                </Button>
+              </Link>
               <Button className="ml-2" outline color="primary" size="sm">
                 <FaTrashO /> Delete
               </Button>
