@@ -3,42 +3,58 @@ import { Container, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { connect } from 'react-redux';
 import serializeForm from 'form-serialize';
 import randomID from 'random-id';
-import { addPost } from '../actions';
+import { addPost, updatePost } from '../actions';
 
 class CreateEditPost extends Component {
-  handleSumit = (e) => {
+  handleSumit = (e, mode) => {
     e.preventDefault();
     const post = serializeForm(e.target, { hash: true });
     post.id = randomID(18);
     post.timestamp = Date.now();
-    this.props.addPost(post);
+    switch (mode) {
+      case 'createMode':
+        this.props.addPost(post);
+        break;
+      case 'editMode':
+        this.props.updatePost(post);
+        break;
+      default:
+        break;
+    }
   }
 
   render() {
-    const { categories } = this.props;
+    const { categories, post } = this.props;
+    const mode = post ? 'editMode' : 'createMode';
     return (
       <Container>
-        <Form onSubmit={this.handleSumit}>
+        <Form onSubmit={e => this.handleSumit(e, mode)}>
           <FormGroup>
             <Label for="title">Title</Label>
-            <Input name="title" placeholder="post title" />
+            <Input name="title" placeholder="post title" defaultValue={mode === 'editMode' ? post.title : ''} />
           </FormGroup>
           <FormGroup>
             <Label for="body">Body</Label>
-            <Input type="textarea" name="body" />
+            <Input type="textarea" name="body" defaultValue={mode === 'editMode' ? post.body : ''} />
           </FormGroup>
-          <FormGroup>
-            <Label for="author">Author</Label>
-            <Input name="author" placeholder="post author" />
-          </FormGroup>
-          <FormGroup>
-            <Label for="category">Category</Label>
-            <select name="category" className="form-control" id="exampleFormControlSelect1">
-              {categories.map(category => (
-                <option key={category}>{category}</option>
-                ))}
-            </select>
-          </FormGroup>
+          {mode === 'createMode' &&
+            (
+              <FormGroup>
+                <Label for="author">Author</Label>
+                <Input name="author" placeholder="post author" defaultValue={mode === 'editMode' ? post.author : ''} />
+              </FormGroup>
+          )}
+          {mode === 'createMode' &&
+            (
+              <FormGroup>
+                <Label for="category">Category</Label>
+                <select name="category" className="form-control" id="exampleFormControlSelect1">
+                  {categories.map(category => (
+                    <option key={category}>{category}</option>
+                    ))}
+                </select>
+              </FormGroup>
+          )}
           <Button>Submit</Button>
         </Form>
       </Container>
@@ -46,12 +62,14 @@ class CreateEditPost extends Component {
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
+  const { postID } = ownProps.match.params;
   return {
     categories: state.categories.reduce((accumulator, c) => {
       accumulator.push(c.name);
       return accumulator;
     }, []),
+    post: state.posts.filter(post => post.id === postID)[0],
   };
 }
 

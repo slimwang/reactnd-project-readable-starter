@@ -21,7 +21,7 @@ class App extends Component {
               path="/post/add"
               component={CreateEditPost}
               exact
-              />
+            />
             <Route
               path="/post/:postID/edit"
               component={CreateEditPost}
