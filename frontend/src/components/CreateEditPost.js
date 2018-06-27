@@ -9,10 +9,10 @@ class CreateEditPost extends Component {
   handleSumit = (e, mode) => {
     e.preventDefault();
     const post = serializeForm(e.target, { hash: true });
-    post.id = randomID(18);
-    post.timestamp = Date.now();
     switch (mode) {
       case 'createMode':
+        post.id = randomID(18);
+        post.timestamp = Date.now();
         this.props.addPost(post);
         break;
       case 'editMode':
@@ -75,6 +75,7 @@ function mapStateToProps(state, ownProps) {
 
 const mapDispatchToProps = dispatch => ({
   addPost: data => dispatch(addPost(data)),
+  updatePost: data => dispatch(updatePost(data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateEditPost);

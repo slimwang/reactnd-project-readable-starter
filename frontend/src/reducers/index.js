@@ -4,6 +4,7 @@ import {
   GET_CATEGORIES,
   GET_ALL_POSTS,
   ADD_POST,
+  UPDATE_POST,
   REMOVE_POST,
   SORT_BY,
   GET_ALL_COMMENTS,
@@ -26,11 +27,24 @@ function posts(state = [], action) {
   switch (action.type) {
     case GET_ALL_POSTS:
       return action.posts;
-    case ADD_POST:
+    case ADD_POST: {
       API.addPost(action.post);
       let newState = state.slice();
       newState.push(action.post);
       return newState;
+    }
+    case UPDATE_POST: {
+      const newPost = action.post;
+      let newState = state.slice().forEach((post) => {
+        if (post.id === newPost.id) {
+          post.title = newPost.title;
+          post.body = newPost.body;
+        }
+        return post;
+      });
+      console.log(newState);
+      return state;
+    }
     case VOTE_POST: {
       const { voteType, postID } = action;
       API.votePost(postID, voteType);
